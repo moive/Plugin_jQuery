@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    	<title>Plugin jQuery</title>
+	<meta name="description" content="plugin jQuery" />
+    <link href='https://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/style.css" media="screen">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/color-pre.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $(".color").colorTxt();
+            $(".menu a").colorLink().addClass("red");
+            $("span").colorSpan();
+            $(".open").colorUpper("open");
+            $(".close").colorUpper("close");
+        });
+    </script>
+</head>
+<body>
+    <div class="color">
+        Welcome <span>PEOPLE</span>
+    </div>
+    <ul class="menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About <span>+</span></a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+    <div>
+        <a href="#">
+            <span>link</span>
+        </a>
+    </div>
+    <footer>
+        <a href="#" class="open">OPEN</a>
+        <a href="#" class="close">CLOSE</a>
+    </footer>
+</body>
+</html>

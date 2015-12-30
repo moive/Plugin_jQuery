@@ -1,0 +1,31 @@
+body{
+    font-family: 'Slabo 27px', serif;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    font-family: 'Oswald', sans-serif;
+}
+h1{
+    font-family: 'Oswald', sans-serif;
+}
+.red{
+    color: red!important;
+}
+.info{
+    background-color: yellow;
+}
+.error{
+    background-color: red;
+}
+.message{
+    border:2px solid #e5e5e5;
+    border-radius: 6px;
+    display: none;
+    padding: 10px;
+}
+.mostrar{
+    display: inline-block;
+    text-transform: uppercase;
+}

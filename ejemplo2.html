@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    	<title>Plugin jQuery</title>
+	<meta name="description" content="plugin jQuery" />
+    <link href='https://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/style.css" media="screen">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/color.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $("h1").colorH1({
+                color: "red"
+            });
+
+            $(".menu a").showLink();
+        });
+    </script>
+</head>
+<body>
+    <h1>Welcome</h1>
+    <ul class="menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About <span>+</span></a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</body>
+</html>
