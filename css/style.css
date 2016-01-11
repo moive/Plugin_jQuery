@@ -53,3 +53,22 @@ h1{
 .art{
     margin:0 0 20px;
 }
+.post{
+    margin: 0 auto;
+    text-align: center;
+    width: 640px;
+}
+.post img{
+    max-width: 100%;
+}
+.captioned-image{
+    background: black;
+    margin:0 0 20px;
+    padding: 10px;
+}
+.caption{
+    color: white;
+    display: block;
+    font-weight: bold;
+    padding: 10px 0 0;
+}
