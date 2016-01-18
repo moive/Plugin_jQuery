@@ -13,7 +13,8 @@
 
         var defaultOptions = {
             ads_sources : ['ad1.html', 'ad2.html', 'ad3.html', 'ad4.html', 'ad5.html'],
-            num_displayed : 2
+            num_displayed : 2,
+            onAdLoader : $.noop //function (){} //function empty
         };
 
         var opts = $.extend({}, defaultOptions, opts);
@@ -21,9 +22,16 @@
         var $ads_area = this,
             ads_sources = opts.ads_sources,
             num_displayed = opts.num_displayed,
-            selected_ads = [];
+            selected_ads = [],
+            //after ads_sources is transformed into an array, it becomes this
+            ads_array =[]
 
-        //validate ad sources, reverting to default if needed
+        if($.isFunction(ads_sources)){
+            ads_array = ads_sources.call();
+        }else{
+            ads_array = ads_sources;
+        }
+
         if(!$.isArray(ads_sources) || ads_sources.length < 1){
             ads_sources = defaultOptions.ads_sources;
         }
@@ -62,9 +70,15 @@
 
                 $.get('ads/' + src, function(data){
                     $ads_area.append(data);
+
+                    //fire the onAdLoaded callback
+                    opts.onAdLoader(idx, num_displayed)
                 });
             });
         }
+
+        //never break the chain
+        return $ads_area;
 
         function randomIntFromInterval(min, max){
             return Math.floor(Math.random() * (max - min + 1) + min);
@@ -75,7 +89,20 @@
 $(document).ready(function(){
     'use strict';
     $(".our_partner").adsRotator({
-        num_displayed : 1,
-        ads_sources : ['ad3.html', 'ad4.html', 'ad5.html']
+        num_displayed : 3,
+        ads_sources : function(){
+            var my_ads = ['ad1.html', 'ad2.html', 'ad3.html', 'ad4.html', 'ad5.html'];
+
+            //do all kinds of craziness here, or just reserve the array
+            my_ads.reverse();
+
+            return my_ads;
+        },
+        onAdLoader : function(idx, num_displayed){
+            console.log('Loaded ad :' + idx);
+            if(num_displayed - 1 === idx){
+                console.log('That was the last ad! Where!');
+            }
+        }
     });
 });
