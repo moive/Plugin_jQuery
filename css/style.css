@@ -72,3 +72,14 @@ h1{
     font-weight: bold;
     padding: 10px 0 0;
 }
+.contenido{
+    padding:0 15px;
+}
+.our_partner{
+    float: right;
+    margin-left:20px;
+    width: 300px;
+}
+.our_partner figure{
+    padding-bottom: 20px;
+}
